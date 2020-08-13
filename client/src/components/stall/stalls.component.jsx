@@ -20,18 +20,16 @@ const Stall = ({ stallItems, getStall }) => {
     <ProductContainer>
       <SideNavbar />
       <div>
-        <h4 className='mt-1'>My Investment: &#10095;&#10095;</h4>
+        <h4 className='mt-1'>My Orders: &#10095;&#10095;</h4>
         <Container className='mt-1'>
           <Table>
             <thead>
               <tr>
                 <th>Product</th>
-                <th>Amount</th>
-                <th>ROI</th>
-                <th>ROI Amount</th>
                 <th>Units</th>
+                <th>Amount</th>
                 <th>Purchased</th>
-                <th>Matures</th>
+                <th>Delivered</th>
                 <th>Status</th>
                 <th></th>
               </tr>

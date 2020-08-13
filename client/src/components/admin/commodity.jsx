@@ -23,7 +23,7 @@ const Commodity = ({ commodityItems, getCommodity }) => {
             <th>Starting Unit</th>
             <th>Unit Left</th>
             <th>Buying Price</th>
-            <th>ROI</th>
+            <th>Return</th>
             <th>Duration</th>
           </tr>
         </thead>

@@ -34,9 +34,6 @@ const Navbar = ({
             {isAuthenticated ? (
               <ul>
                 <li>
-                  <h4>Hi {user && user.first_name}</h4>
-                </li>
-                <li>
                   <Link to='/cart'>
                     <div id='ex3'>
                       <span className='fa-stack' data-count={cartItems.length}>
@@ -44,6 +41,9 @@ const Navbar = ({
                       </span>
                     </div>
                   </Link>
+                </li>
+                <li>
+                  <h4>Hi {user && user.first_name}</h4>
                 </li>
                 <li>
                   <Link to='#!' className='logout' onClick={logout}>

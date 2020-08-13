@@ -18,7 +18,7 @@ const CommodityItem = ({ item, getCurrentCommodity, history }) => {
       <td data-label='Starting Unit'>{item.starting_unit}</td>
       <td data-label='Unit Left'>{item.unit_number}</td>
       <td data-label='Buying Price'>{item.buying_price}</td>
-      <td data-label='ROI'>{item.selling_price}</td>
+      <td data-label='Return'>{item.selling_price}</td>
       <td data-label='Duration'>{item.duration}</td>
       <td className='edit' onClick={editCommodity}>
         <i className='fa fa-edit'></i>

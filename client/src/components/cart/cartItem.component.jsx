@@ -27,7 +27,6 @@ const CartItem = ({ item, removeCart, commodityItems, addUnit }) => {
         <td data-label='Product'>{item.productName}</td>
         <td data-label='Unit'>{item.unit_number}</td>
         <td data-label='Cost'>{item.costBuying}</td>
-        <td data-label='Return'>{item.costReturn}</td>
         <td className='edit' onClick={onUnit}>
           <i className='fas fa-times'></i>
         </td>

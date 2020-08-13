@@ -62,7 +62,6 @@ const Cart = ({
                 <th>Product</th>
                 <th>Unit</th>
                 <th>Cost</th>
-                <th>Return</th>
                 <th></th>
               </tr>
             </thead>

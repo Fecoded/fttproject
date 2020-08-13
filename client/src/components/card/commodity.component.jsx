@@ -27,9 +27,8 @@ const Commodity = ({ item, getSingleCommodity, history }) => {
           <NotifyTag soldOut>Sold Out</NotifyTag>
         )}
         <h4>{item.farm_name}</h4>
-        <p>{item.selling_price}% ROI</p>
-        <p>{item.duration}</p>
-        <small>12 weeks initially then every 6 weeks after first cycle</small>
+        <p>{item.selling_price} NGN</p>
+        <p>Per KG</p>
       </CardBody>
     </Card>
   );

@@ -37,10 +37,10 @@ const CommodityDetail = ({
   costBuying = unit_number ? costBuying : buyingCost;
   const [setBuyingPrice] = useState(costBuying);
 
-  const returnCost =
-    (+commodityItem.selling_price / 100) * unit_number * buyingCost;
-  const costReturn = unit_number ? returnCost : '0';
-  const [setReturnCost] = useState(costReturn);
+  // const returnCost =
+  //   (+commodityItem.selling_price / 100) * unit_number * buyingCost;
+  // const costReturn = unit_number ? returnCost : '0';
+  // const [setReturnCost] = useState(costReturn);
 
   const availableUnit = +commodityItem.unit_number - unit_number;
   const unitAvailable = unit_number ? availableUnit : commodityItem.unit_number;
@@ -54,7 +54,6 @@ const CommodityDetail = ({
       unit_number,
       buyingCost,
       sellingCost,
-      costReturn,
       costBuying,
       productName,
       productUnit,
@@ -91,9 +90,8 @@ const CommodityDetail = ({
             <NotifyTag soldOut>Sold Out</NotifyTag>
           )}
           <h4>{commodityItem.farm_name}</h4>
-          <p>{commodityItem.selling_price}% ROI</p>
-          <p>{commodityItem.duration}</p>
-          <small>12 weeks initially then every 6 weeks after first cycle</small>
+          <p>{commodityItem.selling_price} NGN</p>
+          <p>Per Kg</p>
         </CardBody>
       </Card>
       <CheckOutContainer>
@@ -101,7 +99,7 @@ const CommodityDetail = ({
           <h4>Cost Per Units: {commodityItem.buying_price}</h4>
           {commodityItem.unit_number !== '0' && (
             <h4>
-              Enter Unit
+              Enter Units
               <input
                 type='number'
                 name='unit_number'
@@ -111,7 +109,7 @@ const CommodityDetail = ({
             </h4>
           )}
           <h4>
-            Cost NGN:
+            Cost: N
             <input
               type='number'
               name='buying_price'
@@ -121,17 +119,7 @@ const CommodityDetail = ({
             />
           </h4>
           <h4>
-            Return NGN:
-            <input
-              type='number'
-              name='return_cost'
-              value={costReturn}
-              disabled
-              onChange={(e) => setReturnCost(e.target.value)}
-            />
-          </h4>
-          <h4>
-            Available Units:
+            Units Left:
             <input
               type='number'
               name='available_unit'

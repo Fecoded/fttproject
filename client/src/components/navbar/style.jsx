@@ -18,7 +18,7 @@ export const CustomNavbar = styled.div`
   justify-content: space-between;
 
   img {
-    height: 55px;
+    height: auto;
     width: 55px;
   }
 `;
@@ -67,11 +67,11 @@ export const Nav = styled.div`
 export const SideNav = styled.div`
   background: #f4f4f4;
   color: #333;
-  margin: 3.5rem 0 0 3px;
+  margin: 3.5rem 0 5px 3px;
   border-radius: 3px;
   border-bottom: 1px solid #ccc;
   border: 1px solid #ccc;
-  // height: 34.2vh;
+  height: auto;
 
   ul {
     list-style: none;
