@@ -34,6 +34,9 @@ const MediaNav = ({ logout }) => {
             <Link to='/admin/investors'>All Investors</Link>
           </li>
           <li>
+            <Link to='/admin/payments'>Payments</Link>
+          </li>
+          <li>
             <button to='#!' onClick={logout}>
               LOGOUT
             </button>

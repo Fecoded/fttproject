@@ -25,11 +25,13 @@ const UserList = lazy(() => import('./home/admin/userList'));
 const UserProfile = lazy(() => import('./investor/userProfile'));
 const InvestorsList = lazy(() => import('./home/admin/investorsList'));
 const InvestorView = lazy(() => import('./investor/investorView'));
+const Payments = lazy(() => import('./home/admin/payments'));
 
 // User Component
 const UserLogin = lazy(() => import('./auth/user/Login'));
 const UserRegister = lazy(() => import('./auth/user/Register'));
 const HomePage = lazy(() => import('./home/user/homePage'));
+const OrderPage = lazy(() => import('./stall/orderPage'));
 const CommodityItem = lazy(() =>
   import('../components/card/commodityItem.component')
 );
@@ -40,6 +42,13 @@ const CommodityItems = lazy(() =>
 );
 const Cart = lazy(() => import('./cart/cart'));
 const WalletPage = lazy(() => import('./wallet/walletPage'));
+const SupportPage = lazy(() => import('./support/supportPage'));
+const ForgotPasswordPage = lazy(() =>
+  import('./forgotPassword/ForgotPasswordPage')
+);
+const ResetPasswordPage = lazy(() =>
+  import('./resetpassword/ResetPasswordPage')
+);
 
 const Routes = ({ admin: { isAuthenticated, user }, commodityItem }) => (
   <Fragment>
@@ -53,7 +62,15 @@ const Routes = ({ admin: { isAuthenticated, user }, commodityItem }) => (
           <PrivateRouteUser exact path='/profile' component={ProfilePage} />
           <PrivateRouteUser exact path='/wallet' component={WalletPage} />
           <PrivateRouteUser exact path='/cart' component={Cart} />
+          <PrivateRouteUser exact path='/orders' component={OrderPage} />
           <Route exact path='/commodity' component={CommodityItems} />
+          <Route exact path='/support' component={SupportPage} />
+          <Route exact path='/forgotpassword' component={ForgotPasswordPage} />
+          <Route
+            exact
+            path='/resetpassword/:token'
+            component={ResetPasswordPage}
+          />
           <Route
             path='/commodity/:itemname'
             render={() =>
@@ -97,6 +114,11 @@ const Routes = ({ admin: { isAuthenticated, user }, commodityItem }) => (
             exact
             path='/admin/commodities'
             component={CommodityList}
+          />
+          <PrivateRouteAdmin
+            exact
+            path='/admin/payments'
+            component={Payments}
           />
         </Suspense>
       </ErrorHandler>

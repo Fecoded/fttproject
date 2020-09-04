@@ -2,13 +2,18 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
+import swal from 'sweetalert';
 
 import {
   selectCartItems,
   selectCartItemCount,
 } from '../../redux/cart/cart.selectors';
-import { selectWalletItem } from '../../redux/wallet/wallet.selector';
-import { getWallet, updateAmount } from '../../redux/wallet/wallet.action';
+import { selectFundedWallet } from '../../redux/wallet/wallet.selector';
+import {
+  getWallet,
+  deleteAmount,
+  getFundedWallet,
+} from '../../redux/wallet/wallet.action';
 import { setAlert } from '../../redux/alert/alert.action';
 import { createStall } from '../../redux/stall/stall.action';
 import { clearCart } from '../../redux/cart/cart.action';
@@ -21,17 +26,19 @@ const Cart = ({
   cartItems,
   totalCount,
   setAlert,
-  wallet,
   createStall,
   clearCart,
   getWallet,
-  updateAmount,
+  getFundedWallet,
+  deleteAmount,
+  fundedWallet,
 }) => {
   useEffect(() => {
     getWallet();
-  }, [getWallet]);
+    getFundedWallet();
+  }, [getWallet, getFundedWallet]);
 
-  const currentWallet = wallet && wallet.amount;
+  const currentWallet = fundedWallet && fundedWallet.amount;
   const amount = currentWallet - totalCount;
 
   const onCheckBalance = () => {
@@ -39,12 +46,23 @@ const Cart = ({
       setAlert('Insufficient Funds', 'error');
     } else {
       if (cartItems.length > 0) {
-        if (window.confirm(`Pay NGN ${totalCount} for product on Cart`)) {
-          createStall(cartItems);
-          updateAmount(amount);
-          setAlert('Product Purchased, Please Check Your Stall', 'success');
-          clearCart();
-        }
+        swal({
+          title: 'Are you sure?',
+          text: `You want to Pay NGN ${totalCount} for product(s) on Cart`,
+          icon: 'info',
+          buttons: true,
+          dangerMode: true,
+        }).then((result) => {
+          if (result) {
+            createStall(cartItems);
+            deleteAmount({
+              user: fundedWallet.user,
+              amount,
+            });
+            setAlert('Product Purchased, Please Check My Orders', 'success');
+            clearCart();
+          }
+        });
       } else {
         setAlert('Cart is empty', 'error');
       }
@@ -88,17 +106,17 @@ const Cart = ({
 Cart.propTypes = {
   cartItems: PropTypes.array,
   totalCount: PropTypes.number,
-  wallet: PropTypes.object,
   setAlert: PropTypes.func,
   clearCart: PropTypes.func,
   getWallet: PropTypes.func,
-  updateAmount: PropTypes.func,
+  deleteAmount: PropTypes.func,
+  fundedWallet: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   totalCount: selectCartItemCount,
-  wallet: selectWalletItem,
+  fundedWallet: selectFundedWallet,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -106,7 +124,8 @@ const mapDispatchToProps = (dispatch) => ({
   createStall: (cartItems) => dispatch(createStall(cartItems)),
   clearCart: () => dispatch(clearCart()),
   getWallet: () => dispatch(getWallet()),
-  updateAmount: (amount) => dispatch(updateAmount(amount)),
+  getFundedWallet: () => dispatch(getFundedWallet()),
+  deleteAmount: (formData) => dispatch(deleteAmount(formData)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

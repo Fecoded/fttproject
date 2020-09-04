@@ -63,8 +63,8 @@ export const Table = styled.table`
   }
 
   img {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
   }
 
   @media screen and (max-width: 768px) {

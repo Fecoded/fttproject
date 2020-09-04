@@ -26,6 +26,11 @@ const Navbar = () => (
           All Investors
         </NavLink>
       </li>
+      <li>
+        <NavLink to='/admin/payments' activeClassName='current' exact>
+          Payments
+        </NavLink>
+      </li>
     </ul>
   </SideNav>
 );

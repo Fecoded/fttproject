@@ -18,7 +18,7 @@ export const CustomNavbar = styled.div`
   justify-content: space-between;
 
   img {
-    height: auto;
+    height: 55px;
     width: 55px;
   }
 `;
@@ -67,11 +67,12 @@ export const Nav = styled.div`
 export const SideNav = styled.div`
   background: #f4f4f4;
   color: #333;
-  margin: 3.5rem 0 5px 3px;
+  margin: 3.5rem 0 0 3px;
   border-radius: 3px;
   border-bottom: 1px solid #ccc;
   border: 1px solid #ccc;
-  height: auto;
+  overflow: hidden;
+  height: 40.2vh;
 
   ul {
     list-style: none;
@@ -107,6 +108,8 @@ export const SideNav = styled.div`
 
   @media only screen and (max-width: 1120px) {
     display: none;
+  }
+
   }
 `;
 

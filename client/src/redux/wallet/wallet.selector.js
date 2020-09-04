@@ -12,6 +12,26 @@ export const selectWalletItems = createSelector(
   (wallet) => wallet.walletItems
 );
 
+export const selectFundedWallet = createSelector(
+  [selectWallet],
+  (wallet) => wallet.fundedWallet
+);
+
+export const selectFundedWallets = createSelector(
+  [selectWallet],
+  (wallet) => wallet.fundedWallets
+);
+
+export const selectWalletFilter = createSelector(
+  [selectWallet],
+  (wallet) => wallet.filtered
+);
+
+export const selectWalletCurrent = createSelector(
+  [selectWallet],
+  (wallet) => wallet.current
+);
+
 // export const selectWalletItemCount = createSelector(
 //   [selectWalletItem],
 //   (walletItems) =>

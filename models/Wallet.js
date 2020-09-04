@@ -5,17 +5,27 @@ const WalletSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
   },
-  email: {
+  img: {
     type: String,
   },
-  name: {
+  first_name: {
+    type: String,
+  },
+  last_name: {
+    type: String,
+  },
+  email: {
     type: String,
   },
   phone: {
     type: String,
   },
   amount: {
-    type: Number,
+    type: String,
+  },
+  status: {
+    type: String,
+    default: 'Pending',
   },
   createdAt: {
     type: Date,

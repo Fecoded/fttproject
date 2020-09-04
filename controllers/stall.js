@@ -68,3 +68,34 @@ exports.postStall = async (req, res, next) => {
     });
   }
 };
+
+// @desc    UPDATE STALL STATUS
+// @route   PUT /api/stall/:id
+// @access  Private
+exports.updateStallStatus = async (req, res, next) => {
+  try {
+    let stallStatus = await Stall.findById(req.params.id);
+
+    let status = 'Approved';
+    let deliveredAt = new Date().toLocaleDateString();
+
+    const newExp = {
+      status,
+      deliveredAt,
+    };
+
+    stallStatus = await Stall.findByIdAndUpdate(
+      req.params.id,
+      { $set: newExp },
+      { new: true }
+    );
+
+    return res.status(200).json({ success: true, data: stallStatus });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({
+      success: false,
+      error: 'Server Error',
+    });
+  }
+};

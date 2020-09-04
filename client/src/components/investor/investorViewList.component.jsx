@@ -28,9 +28,7 @@ const investorViewList = ({ investor, stalls }) => {
                 <th>Product Name</th>
                 <th>Units</th>
                 <th>Cost</th>
-                <th>Return</th>
                 <th>Purchase</th>
-                <th>Matures</th>
                 <th>Status</th>
                 <th></th>
               </tr>

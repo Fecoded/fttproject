@@ -55,7 +55,7 @@ const MediaNav = ({
                 <Link to='/wallet'>Wallet</Link>
               </li>
               <li>
-                <Link to='/help'>Help & Support</Link>
+                <Link to='/support'>Support</Link>
               </li>
             </Fragment>
             <li>
@@ -72,7 +72,7 @@ const MediaNav = ({
               </Link>
             </li>
             <li>
-              <Link to='/help'>Help & Support</Link>
+              <Link to='/support'>Support</Link>
             </li>
 
             <li>

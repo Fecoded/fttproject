@@ -23,9 +23,15 @@ const StallSchema = new mongoose.Schema({
   costReturn: {
     type: String,
   },
+  totalCount: {
+    type: String,
+  },
   status: {
     type: String,
     default: 'Waiting',
+  },
+  deliveredAt: {
+    type: String,
   },
   createdAt: {
     type: Date,

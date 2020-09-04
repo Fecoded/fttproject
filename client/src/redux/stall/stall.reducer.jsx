@@ -1,4 +1,4 @@
-import { GET_STALL, STALL_ERROR } from './stall.types';
+import { GET_STALL, UPDATE_STATUS, STALL_ERROR } from './stall.types';
 
 const initialState = {
   stallItems: [],
@@ -13,6 +13,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         stallItems: payload,
+        loading: false,
+      };
+    case UPDATE_STATUS:
+      return {
+        ...state,
+        stallItems: state.stallItems.map((stallItem) =>
+          stallItem._id === payload._id ? payload : stallItem
+        ),
         loading: false,
       };
     case STALL_ERROR:

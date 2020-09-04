@@ -1,23 +1,41 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-const StallItem = ({ item }) => {
-  const { productName, costBuying, unit_number, createdAt, status } = item;
+import StallDelivered from './stallDelivered';
 
-  let now = new Date(createdAt);
-  const Mature = now.setDate(now.getDate() + 12 * 7);
+const StallItem = ({ stallItems, history }) => {
+  const getStatus = stallItems.find((item) => item.status === 'Waiting');
+
+  const getStatusfilter = stallItems.filter(
+    (item) => item.status === 'Waiting'
+  );
+
+  const getAmountFilter = getStatusfilter.reduce(
+    (result, amount) => result + +amount.costBuying,
+    0
+  );
+
+  const getDate = stallItems.map((item) => getStatus && item.createdAt);
+  let now = new Date(getDate[0]);
+
+  const onOrder = () => {
+    history.push('/orders');
+  };
 
   return (
-    <tr className='priority-200'>
-      <td data-label='Product'>{productName}</td>
-      <td data-label='Units'>{unit_number}</td>
-      <td data-label='Amount'>{costBuying}</td>
-      <td data-label='Purchased'>{moment(createdAt).format('DD/MM/YYYY')}</td>
-      <td data-label='Delivered'>{moment(Mature).format('DD/MM/YYYY')}</td>
-      <td data-label='Status'>{status}</td>
-      <td></td>
-    </tr>
+    <Fragment>
+      <tr className='priority-200 cursor' onClick={onOrder}>
+        <td data-label='Market List'>List Orders</td>
+        <td data-label='No of Commodites'>{getStatusfilter.length}</td>
+        <td data-label='Amount'>{getAmountFilter}</td>
+        <td data-label='Purchased'>{moment(now).format('DD/MM/YYYY')}</td>
+        <td data-label='Status'>Waiting</td>
+        <td></td>
+      </tr>
+      <StallDelivered stallItems={stallItems} />
+    </Fragment>
   );
 };
 
@@ -25,4 +43,4 @@ StallItem.propTypes = {
   item: PropTypes.object,
 };
 
-export default StallItem;
+export default withRouter(StallItem);

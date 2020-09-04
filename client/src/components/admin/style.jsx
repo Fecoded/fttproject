@@ -70,6 +70,11 @@ export const Table = styled.table`
     opacity: 1;
   }
 
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
   @media screen and (max-width: 768px) {
     border: 0;
 

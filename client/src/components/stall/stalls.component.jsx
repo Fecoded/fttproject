@@ -25,19 +25,16 @@ const Stall = ({ stallItems, getStall }) => {
           <Table>
             <thead>
               <tr>
-                <th>Product</th>
-                <th>Units</th>
+                <th>Orders</th>
+                <th>No of Commodites</th>
                 <th>Amount</th>
                 <th>Purchased</th>
-                <th>Delivered</th>
                 <th>Status</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              {stallItems.map((item) => (
-                <StallItem key={item._id} item={item} />
-              ))}
+              <StallItem stallItems={stallItems} />
             </tbody>
           </Table>
           {/* <h4 className='left'>Total: NGN {}</h4> */}

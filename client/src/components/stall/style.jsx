@@ -124,9 +124,43 @@ export const Card = styled.div`
   border: 3px solid #dce7ff;
   border-radius: 3px;
   width: 500px;
+  margin-top: 3rem;
+  padding: 20px;
+  line-height: 2;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 
   @media screen and (max-width: 768px) {
     width: auto;
+  }
+`;
+
+export const Modal = styled.div`
+  font-size: 12px;
+  color: #333;
+  text-align: left;
+
+  .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  }
+  .content {
+    width: 100%;
+    padding: 10px 5px;
+  }
+  .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
   }
 `;

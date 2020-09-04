@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Card, SideCard } from './Style';
 
-import img from '../../assets/farmer.jpg';
+import ReactLogo from '../../assets/pic.svg';
 import img1 from '../../assets/carrots2.jpg';
 import img2 from '../../assets/maize.jpg';
 import img3 from '../../assets/spinach.jpg';
@@ -11,7 +11,7 @@ import img4 from '../../assets/pumpkin.jpg';
 const CommodityGrid = () => (
   <Container>
     <Card>
-      <img src={img} alt='' />
+      <img src={ReactLogo} alt='' />
       <SideCard>
         <img src={img1} alt='' />
         <img src={img2} alt='' />

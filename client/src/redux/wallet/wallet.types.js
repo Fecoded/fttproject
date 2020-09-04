@@ -1,5 +1,10 @@
 export const CREATE_WALLET = 'CREATE_WALLET';
 export const GET_WALLET = 'GET_WALLET';
 export const GET_WALLETS = 'GET_WALLETS';
+export const FUNDED_WALLET = 'FUNDED_WALLET';
+export const FUNDED_WALLETS = 'FUNDED_WALLETS';
+export const UPDATE_STATUS = 'UPDATE_STATUS';
+export const FILTER_PAYMENT = 'FILTER_PAYMENT';
 export const CLEAR_WALLET = 'CLEAR_WALLET';
+export const SET_CURRENT = 'SET_CURRENT';
 export const WALLET_ERROR = 'WALLET_ERROR';

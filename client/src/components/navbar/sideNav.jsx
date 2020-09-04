@@ -41,7 +41,7 @@ const Navbar = ({ user: { isAuthenticated }, clearCommodity }) => (
         </Fragment>
       )}
       <li>
-        <NavLink to='/help' activeClassName='current' exact>
+        <NavLink to='/support' activeClassName='current' exact>
           Support
         </NavLink>
       </li>
