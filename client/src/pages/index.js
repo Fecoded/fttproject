@@ -31,7 +31,8 @@ const Payments = lazy(() => import('./home/admin/payments'));
 const UserLogin = lazy(() => import('./auth/user/Login'));
 const UserRegister = lazy(() => import('./auth/user/Register'));
 const HomePage = lazy(() => import('./home/user/homePage'));
-const OrderPage = lazy(() => import('./stall/orderPage'));
+const WaitingOrderPage = lazy(() => import('./stall/waitingPage'));
+const DeliveredOrderPage = lazy(() => import('./stall/deliveredPage'));
 const CommodityItem = lazy(() =>
   import('../components/card/commodityItem.component')
 );
@@ -62,7 +63,16 @@ const Routes = ({ admin: { isAuthenticated, user }, commodityItem }) => (
           <PrivateRouteUser exact path='/profile' component={ProfilePage} />
           <PrivateRouteUser exact path='/wallet' component={WalletPage} />
           <PrivateRouteUser exact path='/cart' component={Cart} />
-          <PrivateRouteUser exact path='/orders' component={OrderPage} />
+          <PrivateRouteUser
+            exact
+            path='/waitingorders'
+            component={WaitingOrderPage}
+          />
+          <PrivateRouteUser
+            exact
+            path='/deliveredorders'
+            component={DeliveredOrderPage}
+          />
           <Route exact path='/commodity' component={CommodityItems} />
           <Route exact path='/support' component={SupportPage} />
           <Route exact path='/forgotpassword' component={ForgotPasswordPage} />

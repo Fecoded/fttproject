@@ -21,7 +21,7 @@ const UploadForm = ({ createCommodity }) => {
   const [product_name, setProductname] = useState('');
   const [unit_number, setUnitNumber] = useState('');
   const [buying_price, setBuyingPrice] = useState('');
-  const [selling_price, setSellingPrice] = useState('');
+  // const [selling_price, setSellingPrice] = useState('');
   const [duration, setDuration] = useState('');
 
   const inputRef = useRef();
@@ -37,7 +37,7 @@ const UploadForm = ({ createCommodity }) => {
       starting_unit,
       unit_number,
       buying_price,
-      selling_price,
+      // selling_price,
       duration,
     });
 
@@ -48,7 +48,7 @@ const UploadForm = ({ createCommodity }) => {
     setProductname('');
     setUnitNumber('');
     setBuyingPrice('');
-    setSellingPrice('');
+    // setSellingPrice('');
     setDuration('');
   };
 
@@ -107,17 +107,6 @@ const UploadForm = ({ createCommodity }) => {
             placeholder='Price Per Kg'
             required
             onChange={(e) => setBuyingPrice(e.target.value)}
-          />
-        </FormControl>
-
-        <FormControl>
-          <input
-            type='number'
-            name='selling_price'
-            value={selling_price}
-            placeholder='ROI in Percent'
-            required
-            onChange={(e) => setSellingPrice(e.target.value)}
           />
         </FormControl>
 

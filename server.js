@@ -25,7 +25,7 @@ const forgotpassword = require('./routes/forgotpassword');
 // Parse Middleware
 app.use(cors());
 app.use(express.json());
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
+// app.use(enforce.HTTPS({ trustProtoHeader: true }));
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
@@ -57,6 +57,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Service Worker
-app.get('/service-worker.js', (req, res) => {
-  res.sendFile(path.solve(__dirname, 'client', 'build', 'service-worker.js'));
-});
+// app.get('/service-worker.js', (req, res) => {
+//   res.sendFile(path.solve(__dirname, 'client', 'build', 'service-worker.js'));
+// });

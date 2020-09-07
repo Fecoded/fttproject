@@ -25,6 +25,7 @@ const Commodity = ({ commodityItems, getCommodity }) => {
             <th>Buying Price</th>
             <th>Return</th>
             <th>Duration</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>

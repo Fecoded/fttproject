@@ -21,18 +21,17 @@ const StallItem = ({ stallItems, history }) => {
   let now = new Date(getDate[0]);
 
   const onOrder = () => {
-    history.push('/orders');
+    history.push('/waitingorders');
   };
 
   return (
     <Fragment>
       <tr className='priority-200 cursor' onClick={onOrder}>
-        <td data-label='Market List'>List Orders</td>
+        <td data-label='Market List'>Waiting Orders</td>
         <td data-label='No of Commodites'>{getStatusfilter.length}</td>
         <td data-label='Amount'>{getAmountFilter}</td>
         <td data-label='Purchased'>{moment(now).format('DD/MM/YYYY')}</td>
         <td data-label='Status'>Waiting</td>
-        <td></td>
       </tr>
       <StallDelivered stallItems={stallItems} />
     </Fragment>

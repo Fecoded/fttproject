@@ -22,7 +22,7 @@ const Users = ({ users, getUsers }) => {
             <th>Last Name</th>
             <th>Email</th>
             <th>Phone Number</th>
-            <th></th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>

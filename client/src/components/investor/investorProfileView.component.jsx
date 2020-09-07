@@ -31,11 +31,27 @@ const InvestorProfileView = ({ investor, profile }) => {
       </div>
       <h2>Next of Kin</h2>
       <div className='investor-details'>
-        <h3>Name: {profile ? profile.next_of_kin.name : ''}</h3>
-        <h3>Gender: {profile ? profile.next_of_kin.nok_gender : ''}</h3>
-        <h3>Relationship: {profile ? profile.next_of_kin.relationship : ''}</h3>
-        <h3>Email: {profile ? profile.next_of_kin.email : ''}</h3>
-        <h3>Phone: {profile ? profile.next_of_kin.phone : ''}</h3>
+        <h3>
+          Name: {profile && profile.next_of_kin ? profile.next_of_kin.name : ''}
+        </h3>
+        <h3>
+          Gender:{' '}
+          {profile && profile.next_of_kin ? profile.next_of_kin.nok_gender : ''}
+        </h3>
+        <h3>
+          Relationship:{' '}
+          {profile && profile.next_of_kin
+            ? profile.next_of_kin.relationship
+            : ''}
+        </h3>
+        <h3>
+          Email:{' '}
+          {profile && profile.next_of_kin ? profile.next_of_kin.email : ''}
+        </h3>
+        <h3>
+          Phone:{' '}
+          {profile && profile.next_of_kin ? profile.next_of_kin.phone : ''}
+        </h3>
       </div>
     </Card>
   );

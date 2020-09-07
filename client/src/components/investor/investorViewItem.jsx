@@ -39,8 +39,6 @@ const InvestorViewItem = ({ stall, updateStatus, history }) => {
           <i className='fas fa-check-circle'></i>
         </td>
       )}
-
-      <td></td>
     </tr>
   );
 };

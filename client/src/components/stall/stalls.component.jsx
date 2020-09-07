@@ -30,14 +30,12 @@ const Stall = ({ stallItems, getStall }) => {
                 <th>Amount</th>
                 <th>Purchased</th>
                 <th>Status</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
               <StallItem stallItems={stallItems} />
             </tbody>
           </Table>
-          {/* <h4 className='left'>Total: NGN {}</h4> */}
         </Container>
       </div>
     </ProductContainer>

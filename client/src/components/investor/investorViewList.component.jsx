@@ -30,7 +30,6 @@ const investorViewList = ({ investor, stalls }) => {
                 <th>Cost</th>
                 <th>Purchase</th>
                 <th>Status</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>

@@ -18,41 +18,28 @@ export const Container = styled.div`
 `;
 
 export const Table = styled.table`
-  border-spacing: 0 4px;
-  color: #333;
+  border-collapse: collapse;
   padding: 10px;
   width: 100%;
 
+  th {
+    background: #c1c1c1;
+  }
+
   th,
   td {
+    border: 1px solid #ddd;
     padding: 15px;
     text-align: left;
   }
 
-  tbody tr {
-    background-color: #909090;
-    color: #f4f4f4;
+  td ul {
+    list-style: none;
+    display: flex;
   }
 
-  tbody tr:hover {
-    background-color: ${mainColor};
-    color: #f4f4f4;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  }
-
-  tbody tr td:first-of-type {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
-
-  tbody tr td:last-of-type {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    text-align: center;
-  }
-
-  tbody tr.priority-200 td:first-of-type {
-    border-left: 5px solid #fff;
+  td ul li:first-child {
+    padding-right: 15px;
   }
 
   .edit {
@@ -63,19 +50,23 @@ export const Table = styled.table`
     cursor: pointer;
     font-size: 16px;
     padding: 5px 10px;
-    opacity: 0;
   }
 
-  tbody tr:hover .edit {
-    opacity: 1;
+  img {
+    width: 40px;
+    height: 40px;
   }
 
   @media screen and (max-width: 768px) {
     border: 0;
 
-    th:nth-of-type(9),
-    td:nth-of-type(9) {
+    th:nth-of-type(8),
+    td:nth-of-type(8) {
       display: none;
+    }
+
+    td:last-child {
+      text-align: center;
     }
 
     tbody tr.priority-200 td:first-of-type {
@@ -123,7 +114,7 @@ export const Card = styled.div`
   background-color: #fff;
   border: 3px solid #dce7ff;
   border-radius: 3px;
-  width: 500px;
+  width: 700px;
   margin-top: 3rem;
   padding: 20px;
   line-height: 2;
@@ -134,33 +125,7 @@ export const Card = styled.div`
   }
 `;
 
-export const Modal = styled.div`
-  font-size: 12px;
-  color: #333;
-  text-align: left;
-
-  .header {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    font-size: 18px;
-    text-align: center;
-    padding: 5px;
-  }
-  .content {
-    width: 100%;
-    padding: 10px 5px;
-  }
-  .close {
-    cursor: pointer;
-    position: absolute;
-    display: block;
-    padding: 2px 5px;
-    line-height: 20px;
-    right: -10px;
-    top: -10px;
-    font-size: 24px;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid #cfcece;
-  }
+export const FlexBox = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
