@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import { selectStallItems } from '../../redux/stall/stall.selector';
+import { currencyFormat } from '../js/main';
 
 import SideNavbar from '../navbar/sideNav';
 import { ProductContainer } from '../navbar/style';
@@ -44,7 +45,7 @@ const WaitingOrders = ({ stallItems }) => {
               <tr key={item._id}>
                 <td>{item.productName}</td>
                 <td>{item.unit_number}kg</td>
-                <td>NGN{item.costBuying}</td>
+                <td>{currencyFormat(+item.costBuying)}</td>
                 <td>{moment(item.createdAt).format('DD/MM/YYYY')}</td>
               </tr>
             ))}
@@ -52,7 +53,7 @@ const WaitingOrders = ({ stallItems }) => {
         </Table>
         <FlexBox>
           <h4>Total KG: {getKg}kg </h4>
-          <h4>Total Cost: NGN{getTotalCost} </h4>
+          <h4>Total Cost: {currencyFormat(+getTotalCost)} </h4>
         </FlexBox>
       </Card>
     </ProductContainer>

@@ -2,6 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 
+import { currencyFormat } from '../js/main';
+
 const StallDelivered = ({ stallItems, history }) => {
   const getStatus = stallItems.find((item) => item.status !== 'Waiting');
 
@@ -24,7 +26,7 @@ const StallDelivered = ({ stallItems, history }) => {
     <tr className='priority-200 cursor' onClick={onOrder}>
       <td data-label='Market List'>Delivered Orders</td>
       <td data-label='No of Commodites'>{getStatusfilter.length}</td>
-      <td data-label='Amount'>{getAmountFilter}</td>
+      <td data-label='Amount'>{currencyFormat(getAmountFilter)}</td>
       <td data-label='Purchased'>{moment(now).format('DD/MM/YYYY')}</td>
       <td data-label='Status'>Delivered</td>
     </tr>

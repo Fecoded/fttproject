@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 const WalletItem = ({ wallet }) => (
-  <tr className='priority-200'>
+  <tr>
     <td data-label='Image'>
       <img src={wallet.img} alt='' />
     </td>
@@ -17,8 +17,6 @@ const WalletItem = ({ wallet }) => (
         <i className='fas fa-check-circle'></i>
       </td>
     )}
-
-    <td></td>
   </tr>
 );
 

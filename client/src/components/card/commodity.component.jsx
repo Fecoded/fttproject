@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { Card, CardHeader, CardBody, NotifyTag, ProductName } from './style';
 import { getSingleCommodity } from '../../redux/commodity/commodity.action';
+import { currencyFormat } from '../js/main';
 
 const Commodity = ({ item, getSingleCommodity, history }) => {
   const currentProduct = () => {
@@ -27,7 +28,7 @@ const Commodity = ({ item, getSingleCommodity, history }) => {
           <NotifyTag soldOut>Sold Out</NotifyTag>
         )}
         <h4>{item.farm_name}</h4>
-        <p>{item.selling_price} NGN</p>
+        <p>{currencyFormat(+item.buying_price)}</p>
         <p>Per KG</p>
       </CardBody>
     </Card>

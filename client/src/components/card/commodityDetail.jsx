@@ -17,6 +17,8 @@ import {
   NotifyTag,
 } from './style';
 
+import { currencyFormat } from '../js/main';
+
 import { Button } from '../../components/button';
 
 const CommodityDetail = ({
@@ -90,13 +92,13 @@ const CommodityDetail = ({
             <NotifyTag soldOut>Sold Out</NotifyTag>
           )}
           <h4>{commodityItem.farm_name}</h4>
-          <p>{commodityItem.selling_price} NGN</p>
+          <p>{currencyFormat(+commodityItem.buying_price)}</p>
           <p>Per Kg</p>
         </CardBody>
       </Card>
       <CheckOutContainer>
         <CheckOut>
-          <h4>Cost Per Units: {commodityItem.buying_price}</h4>
+          <h4>Price Per Kg: {commodityItem.buying_price}</h4>
           {commodityItem.unit_number !== '0' && (
             <h4>
               Enter Units

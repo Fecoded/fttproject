@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import StallDelivered from './stallDelivered';
+import { currencyFormat } from '../js/main';
 
 const StallItem = ({ stallItems, history }) => {
   const getStatus = stallItems.find((item) => item.status === 'Waiting');
@@ -29,7 +30,7 @@ const StallItem = ({ stallItems, history }) => {
       <tr className='priority-200 cursor' onClick={onOrder}>
         <td data-label='Market List'>Waiting Orders</td>
         <td data-label='No of Commodites'>{getStatusfilter.length}</td>
-        <td data-label='Amount'>{getAmountFilter}</td>
+        <td data-label='Amount'>{currencyFormat(getAmountFilter)}</td>
         <td data-label='Purchased'>{moment(now).format('DD/MM/YYYY')}</td>
         <td data-label='Status'>Waiting</td>
       </tr>

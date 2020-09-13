@@ -9,6 +9,8 @@ import {
   getCurrentPayment,
 } from '../../redux/wallet/wallet.action';
 
+import { currencyFormat } from '../js/main';
+
 const PaymentList = ({
   walletItem,
   updateStatus,
@@ -42,7 +44,7 @@ const PaymentList = ({
       <td data-label='POP'>
         <img src={walletItem.img} alt='' />
       </td>
-      <td data-label='Amount'>{walletItem.amount}</td>
+      <td data-label='Amount'>{currencyFormat(+walletItem.amount)}</td>
       <td data-label='Date'>
         {moment(walletItem.createdAt).format('DD/MM/YYYY')}
       </td>
